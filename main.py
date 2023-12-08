@@ -1,5 +1,6 @@
 import pygame
 from settings import *
+from Cell import Cell
 
 
 def main():
@@ -8,6 +9,8 @@ def main():
     pygame.display.set_caption('Maze & Dungeons')
     clock = pygame.time.Clock()
 
+    grid_cells = [Cell(sc, col, row) for row in range(rows) for col in range(cols)]
+
     run = True
     while run:
         sc.fill((0, 0, 0))
@@ -15,6 +18,8 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+
+        [cell.draw() for cell in grid_cells]
 
         pygame.display.flip()
         clock.tick(fps)
