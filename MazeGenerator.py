@@ -1,11 +1,12 @@
 import pygame
 from random import choice
+from settings import *
 
 
 class MazeGenerator:
     def __init__(self, grid_cells):
         self.grid_cells = grid_cells
-        self.current_cell = choice(self.grid_cells)
+        self.current_cell = self.grid_cells[cols*(rows//2)-rows//2]
         self.stack = []
 
     def generateMaze(self):
