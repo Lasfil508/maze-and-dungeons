@@ -1,34 +1,5 @@
-import pygame
-from settings import *
-from Cell import Cell
-from MazeGenerator import MazeGenerator
-
-
-def main():
-    pygame.init()
-    sc = pygame.display.set_mode(size)
-    pygame.display.set_caption('Maze & Dungeons')
-    clock = pygame.time.Clock()
-
-    grid_cells = [Cell(sc, col, row) for row in range(rows) for col in range(cols)]
-    mazeGenerator = MazeGenerator(grid_cells)
-    mazeGenerator.generateMaze()
-
-    run = True
-    while run:
-        sc.fill((0, 0, 0))
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-
-        [cell.draw() for cell in grid_cells]
-
-        pygame.display.flip()
-        clock.tick(fps)
-
-
-pygame.quit()
+from Core import Core
 
 if __name__ == '__main__':
-    main()
+    app = Core()
+    app.main_loop()
