@@ -1,16 +1,26 @@
 import pygame
 from settings import *
+from Camera import Camera
 
 
 class Map:
+    """
+
+    A class for displaying and storing game objects on the map.
+
+    """
     def __init__(self, grid_cells):
         self.grid_cells = grid_cells.copy()
         self.obj = []
         self.mobs = []
+        self.camera = Camera()
+
+    def update(self):
+        pass  # self.camera.update()
 
     def render(self):
         for cell in self.grid_cells:
-            x, y = cell.x * tile, cell.y * tile
+            x, y = self.camera.apply(cell).topleft
             #pygame.draw.rect(cell.sc, pygame.Color('darkgrey'), (x, y, tile, tile), 1)
 
             if cell.walls['top']:

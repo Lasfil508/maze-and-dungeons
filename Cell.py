@@ -3,10 +3,17 @@ from settings import *
 
 
 class Cell:
+    """
+
+    A class for convenient realization of the game field cells and
+    convenient generation of the maze
+
+    """
     def __init__(self, sc, x, y):
         self.x = x
         self.y = y
         self.walls = {'top': True, 'right': True, 'bottom': True, 'left': True}
+        self.rect = pygame.Rect(x*tile, y*tile, tile, tile)
         self.visited = False
         self.sc = sc
 

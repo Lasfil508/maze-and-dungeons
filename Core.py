@@ -7,6 +7,11 @@ from MenuManager import MenuManager
 
 
 class Core:
+    """
+
+    Main class
+
+    """
     def __init__(self):
         pygame.init()
 
@@ -33,7 +38,8 @@ class Core:
         while self.run:
             self.input()
             self.sc.fill((0, 0, 0))
-            self.map.render()
+            self.oMM.update(self)
+            self.oMM.render(self)
 
             pygame.display.flip()
             self.clock.tick(fps)

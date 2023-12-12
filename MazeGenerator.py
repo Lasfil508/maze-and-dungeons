@@ -4,6 +4,12 @@ from settings import *
 
 
 class MazeGenerator:
+    """
+
+    A class for convenient generation of a maze and
+    performing some operations on the cells of the field.
+
+    """
     def __init__(self, grid_cells):
         self.grid_cells = grid_cells
         self.current_cell = self.grid_cells[cols*(rows//2)-rows//2]
