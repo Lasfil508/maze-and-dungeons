@@ -20,12 +20,15 @@ class Camera:
 
         x = min(0, x)
         x = max(-(self.rect.width - width_W), x)
-        y = height_W - self.rect.h
+        # y = height_W - self.rect.h
+        y = max(-(self.rect.height - height_W), y)
+        y = min(0, y)
 
         return pygame.Rect(x, y, self.rect.width, self.rect.height)
 
     def apply(self, target):
         return target.rect.move(self.rect.topleft)
+        # return target.rect.x + self.rect.x, target.rect.y + self.rect.y
 
     def update(self, target):
         self.rect = self.complex_camera(target)

@@ -28,18 +28,35 @@ class Core:
         self.mazeGenerator.generateMaze()
 
         self.run = True
+        self.keyR = False
+        self.keyL = False
+        self.keyU = False
+        self.keyD = False
 
     def input(self):
+        if self.get_mm().currentGameState == 'Game':
+            self.input_player()
+
+    def input_player(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.run = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    self.keyR = True
+                elif event.key == pygame.K_LEFT:
+                    self.keyL = True
+                elif event.key == pygame.K_UP:
+                    self.keyU = True
+                elif event.key == pygame.K_DOWN:
+                    self.keyD = True
 
     def main_loop(self):
         while self.run:
             self.input()
             self.sc.fill((0, 0, 0))
-            self.oMM.update(self)
-            self.oMM.render(self)
+            self.get_mm().update(self)
+            self.get_mm().render(self)
 
             pygame.display.flip()
             self.clock.tick(fps)
@@ -49,4 +66,5 @@ class Core:
     def get_map(self):
         return self.map
 
-
+    def get_mm(self):
+        return self.oMM

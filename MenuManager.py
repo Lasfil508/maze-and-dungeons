@@ -12,8 +12,8 @@ class MenuManager:
 
     def update(self, core):
         if self.currentGameState == 'Game':
-            core.get_map().update()
+            core.get_map().update(core)
 
     def render(self, core):
         if self.currentGameState == 'Game':
-            core.get_map().render()
+            core.get_map().render(core)
