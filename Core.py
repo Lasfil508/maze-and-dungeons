@@ -10,7 +10,7 @@ class Core:
     def __init__(self):
         pygame.init()
 
-        self.sc = pygame.display.set_mode(size)
+        self.sc = pygame.display.set_mode(size_W)
         pygame.display.set_caption('Maze & Dungeons')
 
         self.clock = pygame.time.Clock()
