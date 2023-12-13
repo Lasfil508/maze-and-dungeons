@@ -16,7 +16,8 @@ class Map:
         self.obj = []
         self.mobs = []
         self.camera = Camera()
-        self.player = Player(35, 35)
+        self.current_cell = (0, 0)
+        self.player = Player(36, 36)
 
     def update(self, core):
         self.get_player().update(core)

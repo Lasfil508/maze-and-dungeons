@@ -9,4 +9,4 @@ cols, rows = width // tile, height // tile
 
 player_size = player_width, player_height = 50, 50
 speed_decrease_rate = 2
-speed_increase_rate = 16
+speed_increase_rate = 12
